@@ -79,7 +79,6 @@ const cart_reducer = (state, action) => {
   // clear cart functionality
 
   if (action.type === CLEAR_CART) {
-    console.log("clear cart");
     return { ...state, cart: [] };
   }
 

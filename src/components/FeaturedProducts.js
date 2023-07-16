@@ -12,7 +12,7 @@ const FeaturedProducts = () => {
     products_error: error,
     featured_products: featured,
   } = useProductsContext();
-  console.log(featured);
+
   if (loading) {
     return <Loading />;
   }
@@ -32,6 +32,9 @@ const FeaturedProducts = () => {
           <Product key={product.id} {...product} />
         ))}
       </div>
+      <Link to="/products" className="btn">
+        all products
+      </Link>
     </Wrapper>
   );
 };
