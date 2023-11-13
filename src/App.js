@@ -6,6 +6,7 @@ import {
   Checkout,
   ErrorPage,
   Home,
+  PrivateRoute,
   Products,
   SingleProduct,
 } from "./pages";
@@ -29,7 +30,9 @@ const App = () => {
           <Products />
         </Route>
         <Route exact path="/products/:id" component={SingleProduct} />
-        <Route exact path="/checkout" component={Checkout} />
+        <PrivateRoute exact path="/checkout">
+          <Checkout />
+        </PrivateRoute>
         <Route path="*">
           <ErrorPage />
         </Route>
