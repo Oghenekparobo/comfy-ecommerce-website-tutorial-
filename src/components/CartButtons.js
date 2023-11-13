@@ -10,9 +10,9 @@ const CartButtons = () => {
   const { closeSidebar } = useProductsContext();
   const { total_items } = useCartContext();
 
-  const { loginWithRedirect, logout, myUser } = useUserContext();
+  const {loginWithRedirect , logout , myUser} = useUserContext()
 
-  console.log(loginWithRedirect, myUser);
+  console.log(loginWithRedirect , myUser);
 
   return (
     <Wrapper className="cart-btn">
@@ -23,19 +23,13 @@ const CartButtons = () => {
           <span className="cart-value">{total_items}</span>
         </span>
       </Link>
-      {!myUser ? (
-        <button type="button" className="auth-btn" onClick={loginWithRedirect}>
-          login <FaUserPlus />
-        </button>
-      ) : (
-        <button
-          type="button"
-          className="auth-btn"
-          onClick={() => logout({ returnTo: window.location.ori })}
-        >
-          logout <FaUserMinus />
-        </button>
-      )}
+      {myUser?   <button type="button" className="auth-btn" onClick={loginWithRedirect}>
+        login <FaUserPlus />
+      </button>:   <button type="button" className="auth-btn" onClick={()=> logout({returnTo:window.location.ori})}>
+      logout <FaUserMinus />
+    </button>}
+     
+    
     </Wrapper>
   );
 };
